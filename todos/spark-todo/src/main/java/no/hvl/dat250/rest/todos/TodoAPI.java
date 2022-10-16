@@ -26,7 +26,13 @@ public class TodoAPI {
         after((req, res) -> res.type("application/json"));
         // TODO: Implement API, such that the testcases succeed.
         // Get all
-        get("api/todos", (req, res) -> gson.toJson(todos.values()));
+        get("api/todos", (req, res) -> {
+            ArrayList<String> todoArr = new ArrayList<>();
+            for (Todo t: todos.values()) {
+                todoArr.add(gson.toJson(t));
+            }
+            return todoArr;
+        });
         // Get one
         get("api/todos/:id", (req, res) -> {
             Long id = null;
