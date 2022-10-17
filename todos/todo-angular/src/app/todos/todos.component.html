@@ -1,0 +1,20 @@
+<div>
+  <button (click)="getTodos()">Refresh</button>
+  <h2>Todo</h2>
+  <label for="sum">Summary:</label><br>
+  <input type="text" id="sum" name="sum" [(ngModel)]="todoSum"><br>
+  <label for="desc">Description:</label><br>
+  <input type="text" id="desc" name="desc" [(ngModel)]="todoDes"><br>
+  <button (click)="addTodo()">Add</button>
+</div>
+
+<table>
+  <tr>
+    <td>ID</td><td>Summary</td><td>Description</td><td></td>
+  </tr>
+  <tr *ngFor="let todo of todosArr">
+    <td>{{todo.id}}</td><td>{{todo.summary}}</td><td>{{todo.description}}</td>
+    <td><button (click)="deleteTodo(todo)">Delete</button></td>
+  </tr>
+</table>
+
